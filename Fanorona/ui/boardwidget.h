@@ -18,6 +18,9 @@ public:
     void setBoard(const Board &board);
     void setHighlighted(const std::vector<int> &destinations);
     void setSelected(std::optional<int> pointIndex);
+    // Gira a exibicao em 180 graus, para que o jogador local sempre veja suas
+    // proprias pecas na parte de baixo do tabuleiro.
+    void setFlipped(bool flipped);
 
     QSize sizeHint() const override;
 
@@ -36,6 +39,7 @@ private:
     Board m_board;
     std::vector<int> m_highlighted;
     std::optional<int> m_selected;
+    bool m_flipped = false;
 };
 
 #endif // BOARDWIDGET_H

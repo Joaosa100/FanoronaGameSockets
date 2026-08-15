@@ -58,6 +58,9 @@ GamePage::GamePage(QWidget *parent)
 void GamePage::setLocalPlayer(std::optional<Player> localPlayer)
 {
     m_localPlayer = localPlayer;
+    // PlayerA nasce nas linhas de cima do tabuleiro; vira a exibicao para que
+    // o jogador local sempre veja suas proprias pecas na parte de baixo.
+    m_boardWidget->setFlipped(m_localPlayer == Player::PlayerA);
     refreshStatusLabel();
 }
 

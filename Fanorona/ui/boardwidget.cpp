@@ -37,6 +37,14 @@ void BoardWidget::setSelected(std::optional<int> pointIndex)
     update();
 }
 
+void BoardWidget::setFlipped(bool flipped)
+{
+    if (m_flipped == flipped)
+        return;
+    m_flipped = flipped;
+    update();
+}
+
 QSize BoardWidget::sizeHint() const
 {
     return QSize(700, 420);
@@ -44,7 +52,11 @@ QSize BoardWidget::sizeHint() const
 
 QPointF BoardWidget::pixelFor(int index) const
 {
-    const RowCol rc = BoardGeometry::toRowCol(index);
+    RowCol rc = BoardGeometry::toRowCol(index);
+    if (m_flipped) {
+        rc.row = BoardGeometry::kRows - 1 - rc.row;
+        rc.col = BoardGeometry::kCols - 1 - rc.col;
+    }
     const qreal usableWidth = width() - 2 * kMargin;
     const qreal usableHeight = height() - 2 * kMargin;
     const qreal stepX = usableWidth / (BoardGeometry::kCols - 1);
