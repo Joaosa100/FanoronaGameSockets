@@ -1,0 +1,56 @@
+# ----------------------------------------------------------------------------
+# Repository root .gitignore (the Fanorona/ subproject already has its own
+# Qt Creator-specific .gitignore for everything inside that folder).
+# ----------------------------------------------------------------------------
+
+# Out-of-source builds (e.g. Fanorona/build/) and the "shadow build" folders
+# Qt Creator creates by default as SIBLINGS of the project folder (e.g.
+# build-Fanorona-Desktop_Qt_6_11_1_MinGW_64_bit-Debug/), which land here at
+# the repo root.
+build/
+build-*/
+[Bb]uild[-_]*/
+out/
+cmake-build-*/
+
+# CMake cache/generated files, in case an in-source build ever happens
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+_deps/
+
+# Qt Creator/qmake project settings with machine-local paths
+# (should never be versioned, each dev has their own)
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+*.pro.user
+*.pro.user.*
+*.autosave
+.qtcreator/
+
+# Compiled binaries and build artifacts, wherever they show up in the repo
+*.exe
+*.dll
+*.so
+*.so.*
+*.a
+*.o
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.exp
+
+# Other IDEs/editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.claude
+
+# Operating system files
+Thumbs.db
+desktop.ini
+.DS_Store
